@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: Digital Library
+
+  datasource:
+    url: jdbc:postgresql://localhost:8081/users
+    username: postgres
+    password: OMKAR.04XX
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 8082
