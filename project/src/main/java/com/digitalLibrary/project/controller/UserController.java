@@ -29,7 +29,7 @@ public class UserController {
     }
 
     // get all data of users
-    @GetMapping("/ ")
+    @GetMapping("/")
     public List<UserEntity> getAllUsers(){
         return userService.getAllUsers();
     }

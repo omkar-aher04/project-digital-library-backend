@@ -1,5 +1,6 @@
 package com.digitalLibrary.project.service;
 
+import com.digitalLibrary.project.controller.BookIssueEntity;
 import com.digitalLibrary.project.entity.BookEntity;
 import com.digitalLibrary.project.repository.BookRepository;
 import org.springframework.stereotype.Service;

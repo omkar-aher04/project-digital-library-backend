@@ -1,5 +1,6 @@
 package com.digitalLibrary.project.repository;
 
+import com.digitalLibrary.project.controller.BookIssueEntity;
 import com.digitalLibrary.project.entity.BookEntity;
 import com.digitalLibrary.project.jpaRepository.BookJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,4 +39,6 @@ public class BookRepository {
     public BookEntity getBookById(Integer bookId) {
         return bookJpaRepository.getBookById(bookId);
     }
+
+
 }

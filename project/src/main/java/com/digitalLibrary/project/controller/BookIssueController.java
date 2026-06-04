@@ -1,5 +1,7 @@
 package com.digitalLibrary.project.controller;
 
+import com.digitalLibrary.project.dto.BookIssueDto;
+import com.digitalLibrary.project.mapper.BookIssueDtoMapper;
 import com.digitalLibrary.project.service.BookIssueService;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,15 +12,19 @@ import java.util.List;
 public class BookIssueController {
 
     private final BookIssueService bookIssueService;
+    private final BookIssueDtoMapper bookIssueDtoMapper;  // add this
 
-    public BookIssueController(BookIssueService bookIssueService){
+
+    public BookIssueController(BookIssueService bookIssueService, BookIssueDtoMapper bookIssueDtoMapper){
         this.bookIssueService = bookIssueService;
+        this.bookIssueDtoMapper = bookIssueDtoMapper;
     }
 
     // add book issue
     @PostMapping("/add")
-    public BookIssueEntity addBookIssue(@RequestBody BookIssueEntity bookIssueEntity){
-        return bookIssueService.addBookIssue(bookIssueEntity);
+    public BookIssueEntity addBookIssue(@RequestBody BookIssueDto bookIssueDto){  // changed
+        BookIssueEntity entity = bookIssueDtoMapper.toEntity(bookIssueDto);       // added
+        return bookIssueService.addBookIssue(entity);
     }
 
     // get all
