@@ -6,4 +6,6 @@ import tools.jackson.databind.annotation.JsonSerialize;
 
 @JsonDeserialize
 @JsonSerialize
-public record BookIssueCount(BookEntity bookEntity, long issueCount) {}
+public record BookIssueCount(BookEntity bookEntity, long issueCount) {
+
+}
