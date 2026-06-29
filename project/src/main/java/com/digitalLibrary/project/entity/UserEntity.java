@@ -24,10 +24,14 @@ public class UserEntity {
     private String lastName;
     @Column(name = "email", nullable = false)
     private String email;
+    @Column(name = "password", nullable = false)
+    private String password;
     @Column(name = "dob" ,nullable = false)
     private LocalDate dob;
 
     @Column(name = "subscription_type", nullable = false)
     @Enumerated(value = EnumType.STRING)
     private SubscriptionType subscriptionType = SubscriptionType.NOT_SUBSCRIBED;
+
+
 }

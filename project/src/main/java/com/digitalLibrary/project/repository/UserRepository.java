@@ -10,7 +10,16 @@ import java.util.List;
 @Repository
 public class UserRepository {
 @Autowired
-    private UserJpaRepository userJpaRepository;
+    private final UserJpaRepository userJpaRepository;
+
+    public UserRepository(UserJpaRepository userJpaRepository) {
+        this.userJpaRepository = userJpaRepository;
+    }
+
+    public UserEntity findById(Integer id) {
+        return userJpaRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+    }
 
     //add user in db
     public UserEntity saveUser(UserEntity userEntity) throws BadRequestException {
@@ -48,5 +57,8 @@ public class UserRepository {
 
     public UserEntity getUserById(int userId) {
         return userJpaRepository.getUserById(userId);
+    }
+    public UserEntity findByEmail(String email) {
+        return userJpaRepository.findByEmail(email);
     }
 }

@@ -1,5 +1,6 @@
 package com.digitalLibrary.project.controller;
 
+import com.digitalLibrary.project.dto.LoginDto;
 import com.digitalLibrary.project.service.UserService;
 import com.digitalLibrary.project.entity.UserEntity;
 import com.digitalLibrary.project.repository.UserRepository;
@@ -25,6 +26,10 @@ public class UserController {
     @GetMapping("/name")
     public List<UserEntity> getUserByFirstName(@RequestParam String firstName){
         return userService.getUserByFirstName(firstName);
+    }
+    @PutMapping("/password")
+    public UserEntity updatePassword(@RequestBody LoginDto loginDto) {
+        return userService.updatePassword(loginDto);
     }
 
     // get all data of users
